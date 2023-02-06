@@ -9,10 +9,16 @@
     overflow-x: scroll;
     overflow-y: hidden;
 }
-.posters::webkit-scrollbar {
+.posters::-webkit-scrollbar-button {
     display: none;
 }
 .poster {
     max-height: 250px;
     margin-right: 10px;
+    cursor: pointer;
+}
+.smPoster {
+    max-height: 150px;
+    margin-right: 10px;
+    cursor: pointer;
 }

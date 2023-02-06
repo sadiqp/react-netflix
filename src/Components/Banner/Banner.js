@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import'./Banner.css'
-import  {API_KEY, imageUrl}  from '../Constants/Constants';
+import  {API_KEY}  from '../Constants/Constants';
+import { imageUrl } from '../Constants/Url';
 import axio_instance from '../../Instance_axios';
 
 function Banner() {
 
   const [movies,setMovies]=useState([])
   
-
   useEffect(() => {
     axio_instance.get(`/trending/all/week?api_key=${API_KEY}&language=en-US`).then((response) => {
-      setMovies(response.data.results[11]);
+      setMovies(response.data.results[0]);
     });
   }, []);
 
