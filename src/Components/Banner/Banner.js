@@ -7,12 +7,21 @@ import axio_instance from '../../Instance_axios';
 function Banner() {
 
   const [movies,setMovies]=useState([])
-  
+  const getRandomInt=(async)=>{
+    try {
+      const max=10;
+      return Math.floor(Math.random() * max);
+    } catch (error) {
+      
+    }
+
+  }  
   useEffect(() => {
+    const num =getRandomInt();
     axio_instance.get(`/trending/all/week?api_key=${API_KEY}&language=en-US`).then((response) => {
-      setMovies(response.data.results[0]);
-    });
-  }, []);
+      setMovies(response.data.results[num]);
+      });
+   }, []);
 
   return (
 
